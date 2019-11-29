@@ -122,7 +122,8 @@ private:
     {
         if (!all_equal(m_sensor_accel.timestamp, m_sensor_gyro.timestamp, m_sensor_quat.timestamp)) {
             // only publish consistent IMU messages, i.e. from same time stamp
-            return;
+          ROS_WARN("Inconsistent time");
+          return;
         }
 
         static const double pi = std::acos(-1.0);
